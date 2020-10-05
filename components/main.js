@@ -60,7 +60,7 @@ export default function Main(){
           <Slider/>
         </div>
       </Grid>  
-      <Grid container direction="column" justify="space-between" style={{marginTop:30}}>
+      <Grid container direction="column" justify="space-between">
         <Paper elevation={0} style={{padding:20}}>
               {/* <h1><AnnouncementIcon fontSize="inherit"/>Latest News</h1> */}
               <Grid container>
