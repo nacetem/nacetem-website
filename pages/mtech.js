@@ -6,6 +6,7 @@ import ElevateAppBar from '../components/header'
 import Button from '@material-ui/core/Button';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import BottomMenu from '../components/bottom-navigation'
+import Link from 'next/link'
 
 
 export default function Mtech(){
@@ -45,6 +46,12 @@ export default function Mtech(){
                     <Button variant="outlined" startIcon={<GetAppIcon color='inherit' style={{color:'maroon'}}/>}>
                         <a href="/Application_Forms_Masters.pdf" download style={{color:'maroon'}}> Download form </a>  
                     </Button>
+                    <Link href="/sign-up">
+                        <a>
+                        Register
+                        </a>
+                    </Link>
+
             </Typography>
                 </Grid>
                 <Grid item xs={12} lg={1}>
@@ -85,7 +92,7 @@ export default function Mtech(){
                 <p>The Programme Fee is N450,000 payable in 3 instalments.</p>
                 <Button variant="outlined" startIcon={<GetAppIcon color='inherit' style={{color:'maroon'}}/>}>
                         <a href="/Application_Forms_Masters.pdf" download style={{color:'maroon'}}> Download form </a>  
-                    </Button>
+                </Button>
                     </Typography>
                 </Grid>
                 <Grid item xs={12} lg={5}>

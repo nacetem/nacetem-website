@@ -36,7 +36,19 @@ import Link from 'next/link'
 import ButtonBase from '@material-ui/core/ButtonBase';
 import SchoolIcon from '@material-ui/icons/School';
 import BuildIcon from '@material-ui/icons/Build';
-
+import { useRouter } from 'next/router'
+import {useStateValue} from './course-reg/state-provider'
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import PhoneIcon from '@material-ui/icons/Phone';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import maincss from '../styles/main.module.css'
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -117,18 +129,27 @@ export default function ElevateAppBar({props}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [policyRes, setpolicyRes] = React.useState(null);
   const [capacity, setcapacity] = React.useState(null);
+  const [more, setMore] = React.useState(null);
   const [openDrawer, setOpenDrawer] = React.useState(false);
+  const router = useRouter()
+  const [{loggedIn}, dispatch] = useStateValue();
   
   const open = Boolean(anchorEl);
   const handleToggle = () => setOpenDrawer(!openDrawer);
   const handleChange = (event) => {
     setAuth(event.target.checked);
   };
+  const handleMore = (event) => {
+    setMore(event.currentTarget);
+  };
   const handleCapacity = (event) => {
     setcapacity(event.currentTarget);
   };
   const handleCloseCapacity = () => {
     setcapacity(null);
+  };
+  const handleCloseMore = () => {
+    setMore(null);
   };
   const handlePolicyRes = (event) => {
     setpolicyRes(event.currentTarget);
@@ -137,148 +158,263 @@ export default function ElevateAppBar({props}) {
     setpolicyRes(null);
   };
   
-  const handleMenu = (event) => {
+  const Items = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
   };
+  
+  const handlSignOut = () => {
+    localStorage.removeItem('token');
+    dispatch({type:'LOGGEDOUT', auth:false})
+    router.push('/signin')
+    setAnchorEl(null);
+  };
+  const handleSignUp = ()=>{
+    router.push('/sign-up')
+  }
+  const handleAdmin = ()=>{
+    router.push('/admin-dashboard')
+  }
+  
+  const handleProfile = ()=>{
+    router.push('/profile')
+    setAnchorEl(null);
+  }
+  
+      
   return (<React.Fragment>
       <CssBaseline />
       <ElevationScroll {...props}>
-        <AppBar style={{backgroundColor:"white", color:"maroon"}} className={mstyles.anchor}>
+        <AppBar style={{backgroundColor:"white", color:"maroon", paddingTop:10}}>
           <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon onClick={handleToggle}/>
-          </IconButton>
-          <img src="logo.png" alt="logo" with="50" height="50" className={classes.menuButton}/>
-            <Typography variant="h6" className={classes.myflex}>
-              NACETEM
-            </Typography>
-            <div>
-            
-            <Button color="inherit">
-              <Link href="/">
-                <a>
-                  <Tooltip title="Home">
-                    <HomeIcon/>
-                  </Tooltip>
-                </a>
-              </Link>
-            </Button>
-            <Button color="inherit">
-              <Link href="/about" color="inherit"><a className={styles.btn}>About Us</a></Link>
-            </Button>
-            
-            <Button aria-controls="simple-menu" color="inherit" aria-haspopup="true" onClick={handlePolicyRes}>
-              Policy Research
-              </Button>
-              <Menu 
-                id="simple-menu"
-                anchorEl={policyRes}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={Boolean(policyRes)}
-                onClose={handleClosePolicyRes}
-              >
-                <MenuItem onClick={handleClose} style={{color:"maroon"}}><TrendingUpIcon/>&nbsp;Ongoing Project</MenuItem>
-                <MenuItem onClick={handleClose} style={{color:"maroon"}}><CheckCircleOutlineIcon/>&nbsp;Completed Project</MenuItem>
-                <MenuItem onClick={handleClose} style={{color:"maroon"}}><SignalCellularAltIcon/>&nbsp;STI Indicator</MenuItem>
-                <MenuItem onClick={handleClose} style={{color:"maroon"}}><DescriptionIcon />&nbsp;Publication</MenuItem>
-              </Menu>
-              <Button color="inherit">G-STIC</Button>
-              <Button aria-controls="simple-menu" color="inherit" aria-haspopup="true" onClick={handleCapacity}>
-              Capacity Building
-              </Button>
-              <Menu 
-                id="simple-menu"
-                anchorEl={capacity}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={Boolean(capacity)}
-                onClose={handleCloseCapacity}
-              >
-                <MenuItem onClick={handleClose} style={{color:"maroon"}}>
-                  <Avatar alt="mtech jpg" src="images/mtech.jpg" className={classes.large} />
-                  {/* <SchoolIcon /> */}
-                  &nbsp;<Button color="inherit">
-                    <Link href="/mtech" color="inherit">
-                      <a className={styles.btn}>Masters in Technology Management</a>
+            <Grid container >
+              <Grid item xs={12} lg={1}>
+                <Link href="/">
+                  <a><img src="logo.png" className={maincss.rotate} alt="logo" with="100" height="100"/></a>
+                </Link>
+              </Grid> 
+              <Grid item xs={12} lg={3}>         
+               <Link href="/" > 
+                <a><h2>National Centre for  <br/>Technology Management  <br/> (NACETEM)</h2></a>
+               </Link>
+               </Grid> 
+               <Grid item xs={12} lg={3}>
+                
+               </Grid>
+               <Grid item xs={12} lg={5}>
+               <div >
+                  <div className={maincss.social}>
+                      <IconButton color="primary" aria-label="upload picture" component="span">
+                        <FacebookIcon/>
+                      </IconButton>
+                      <IconButton color="primary" aria-label="upload picture" component="span">
+                        <TwitterIcon/>
+                      </IconButton>
+                      <IconButton color="default" aria-label="upload picture" component="span">
+                        <ContactPhoneIcon/>
+                      </IconButton>
+                  </div>
+                  <Button color="inherit">
+                    <Link href="/">
+                      <a>
+                        <Tooltip title="Home">
+                          <HomeIcon/>
+                        </Tooltip>
+                      </a>
                     </Link>
                   </Button>
+                  <Button aria-controls="simple-menu" color="inherit" aria-haspopup="true" onClick={handlePolicyRes}>
+                    <img src="/images/research_img.png" height="30" width="30" alt=""/>Policy Research
+                    </Button>
+                    <Menu 
+                      id="simple-menu"
+                      anchorEl={policyRes}
+                      anchorOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                      keepMounted
+                      transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                      open={Boolean(policyRes)}
+                      onClose={handleClosePolicyRes}
+                    >
+                      <MenuItem style={{color:"maroon"}}>
+                        <Avatar alt=" " src="images/on_going_img.png" className={classes.large} />&nbsp;
+                        <Link href="/on-going-projects">
+                          <a>Ongoing Project</a>
+                        </Link>
+                      </MenuItem>
+                      <MenuItem style={{color:"maroon"}}>
+                        <Avatar alt=" " src="images/completed_img2.jpg" className={classes.large} />&nbsp;
+                        <Link href="/completed-projects">
+                          <a>Completed Project</a>
+                        </Link>
+                        </MenuItem>
+                      <MenuItem style={{color:"maroon"}}>
+                        <Avatar alt=" " src="images/indicator_img.png" className={classes.large} />&nbsp;
+                        <Link href="/sti-indicators">
+                          <a>STI Indicator</a>
+                        </Link>
+                        </MenuItem>
+                      <MenuItem style={{color:"maroon"}}>
+                        <Avatar alt=" " src="images/publication_img.png" className={classes.large} />&nbsp;
+                        <Link href="/publications">
+                          <a>Publication</a>
+                        </Link>
+                        </MenuItem>
+                    </Menu>
+                    
+                    <Button aria-controls="simple-menu" color="inherit" aria-haspopup="true" onClick={handleCapacity}>
+                    <img src="/images/capacity_building_img.png" height="30" width="30" alt=""/> Capacity Building
+                    </Button>
+                    <Menu 
+                      id="simple-menu"
+                      anchorEl={capacity}
+                      anchorOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                      keepMounted
+                      transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                      open={Boolean(capacity)}
+                      onClose={handleCloseCapacity}
+                    >
+                      <MenuItem onClick={handleClose} style={{color:"maroon"}}>
+                        <Avatar alt="mtech jpg" src="images/mtech.jpg" className={classes.large} />
+                        {/* <SchoolIcon /> */}
+                        &nbsp;<Button color="inherit">
+                          <Link href="/mtech" color="inherit">
+                            <a className={styles.btn}>Masters in Technology Management</a>
+                          </Link>
+                        </Button>
+                        
+                      </MenuItem>
+                        <Divider variant="inset" component="li" />
+                      <MenuItem onClick={handleClose} style={{color:"maroon"}}>
+                      <Avatar alt="pgd jpg" src="images/pgd_img1.jpg" className={classes.large} />
+                      {/* <SchoolIcon /> */}
+                      &nbsp;<Button color="inherit">
+                          <Link href="/pgd" color="inherit">
+                            <a className={styles.btn}> Post Gradute Diploma</a>
+                          </Link>
+                        </Button>
+                    
+                      </MenuItem >
+                        <Divider variant="inset" component="li" />
+                      <MenuItem onClick={handleClose} style={{color:"maroon"}}>
+                        {/* <BuildIcon /> */}
+                        <Avatar src="images/capacity2.png" className={classes.large} />
+
+                        &nbsp;Capacity Development Programme</MenuItem>
+                    </Menu>
+
+                  <Button aria-controls="simple-menu" color="inherit" aria-haspopup="true" onClick={handleMore}>
+                    <Tooltip title="More">
+                      <MenuIcon/>
+                    </Tooltip>
+                    <Tooltip title="More">
+                    <ExpandMoreIcon/>
+                    </Tooltip>
+                  </Button>
+                  <Menu 
+                    id="simple-menu"
+                    anchorEl={more}
+                    anchorOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    open={Boolean(more)}
+                    onClose={handleCloseMore}
+                  >
+                    <MenuItem onClick={handleClose} style={{color:"maroon"}}>
+                      <Avatar alt="mtech jpg" src="images/about_img.jpg" className={classes.large} />
+                      {/* <SchoolIcon /> */}
+                      &nbsp; 
+                      <Button color="inherit">
+                        <Link href="/about" color="inherit"><a className={styles.btn}>About Us</a></Link>
+                      </Button>
+                      
+                    </MenuItem>
+                      <Divider variant="inset" component="li" />
+                    <MenuItem onClick={handleClose} style={{color:"maroon"}}>
+                    <Avatar alt="pgd jpg" src="images/upcomings_img.png" className={classes.large} />
+                    {/* <SchoolIcon /> */}
+                    &nbsp;<Button color="inherit">
+                        <Link href="/upcomings" color="inherit">
+                          <a className={styles.btn}> Upcomings</a>
+                        </Link>
+                      </Button>
                   
-                </MenuItem>
-                  <Divider variant="inset" component="li" />
-                <MenuItem onClick={handleClose} style={{color:"maroon"}}>
-                <Avatar alt="pgd jpg" src="images/pgd_img1.jpg" className={classes.large} />
-                {/* <SchoolIcon /> */}
-                &nbsp;<Button color="inherit">
-                    <Link href="/pgd" color="inherit">
-                      <a className={styles.btn}> Post Gradute Diploma</a>
-                    </Link>
-                  </Button>
-               
-                </MenuItem >
-                  <Divider variant="inset" component="li" />
-                <MenuItem onClick={handleClose} style={{color:"maroon"}}>
-                  {/* <BuildIcon /> */}
-                  <Avatar src="images/capacity2.png" className={classes.large} />
+                    </MenuItem >
+                      <Divider variant="inset" component="li" />
+                    <MenuItem onClick={handleClose} style={{color:"maroon"}}>
+                      {/* <BuildIcon /> */}
+                      <Avatar src="images/contact_img.jpg" className={classes.large} />
 
-                  &nbsp;2019 Capacity Development Programme</MenuItem>
-              </Menu>
-              <Button color="inherit">Upcomings</Button>
-              <Button color="inherit">Contact Us</Button>
-
-              <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <Tooltip title="User Account">
-                <AccountCircle />
-                </Tooltip>
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={open}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-              </Menu>             
-            </div>
-          </Toolbar>
+                      &nbsp;<Button color="inherit"><Link href="/contact" color="inherit">
+                          <a className={styles.btn}> Contact Us</a>
+                        </Link></Button>
+                      </MenuItem>
+                  </Menu>
+                  
+                  
+                  
+                    
+                  {/* <IconButton
+                    aria-label="account of current user"
+                    aria-controls="menu-appbar"
+                    aria-haspopup="true"
+                    onClick={Items}
+                    color="inherit"
+                  >
+                    <Tooltip title="User Account">
+                    <AccountCircle />
+                    </Tooltip>
+                  </IconButton>
+                  <Menu
+                    id="menu-appbar"
+                    anchorEl={anchorEl}
+                    anchorOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    open={open}
+                    onClose={handleClose}
+                  >
+                    <MenuItem onClick={handleProfile}><PersonOutlineIcon/>&nbsp;Profile</MenuItem>
+                    <MenuItem onClick={handlSignOut}><VpnKeyIcon/>&nbsp;{loggedIn? 'Sign Out': 'Sign In'}</MenuItem>
+                    <MenuItem onClick={handleSignUp}><PersonAddIcon/>&nbsp;Sign Up</MenuItem>
+                    <MenuItem onClick={handleAdmin}><PersonAddIcon/>&nbsp;Admin</MenuItem>
+                  </Menu>              */}
+                </div>
+                  </Grid>
+                </Grid>
+              </Toolbar>
+              
         </AppBar>
+        
       </ElevationScroll>
-      <Toolbar />
-      
+      {/* <Toolbar />
+       */}
     </React.Fragment>
   );
 }

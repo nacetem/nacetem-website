@@ -15,12 +15,21 @@ export default function About(){
     <Head>
         <title>About (NACETEM)</title>
       </Head>
-        <Grid container direction="column" justify="space-between" style={{margin:40}}>
-            <Grid item xs={12} lg={12}>
-                <Typography variant="body1" component="h5" style={{backgroundColor:'maroon', color:'#fff', width:300, padding:10, marginTop:10, marginBottom:7}}>
-                    From the DG/CEO's Desk      
-                </Typography>
+        <Grid container direction="column" justify="space-between">
+            <Grid item container direction="row" >
+                <Grid item xs={12} lg={2}>
+                    
+                </Grid>
+                <Grid item xs={12} lg={6}>
+                    <Typography variant="body1" component="h5" style={{backgroundColor:'maroon', color:'#fff', width:300, padding:10, marginTop:10, marginBottom:7}}>
+                        From the DG/CEO's Desk      
+                    </Typography>
+                </Grid>
+                <Grid item xs={12} lg={4}>
+                    
+                </Grid>
             </Grid>
+            
             <Grid item container direction="row" >
                 <Grid item xs={12} lg={2}>
                     

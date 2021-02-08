@@ -8,14 +8,16 @@ import {ProfileDarkTheme} from './tw-page'
 import NacetemAisr from './news/nacetem-aisr'
 import NewsAudaNepad from './news/news-auda-nepad'
 import Gstic from './news/gstic'
-import Mtech from './capacity-building/mtech'
-import Pgd from './capacity-building/pgd'
-import ShortTermCourses from './capacity-building/short-term-courses'
+import Mtech from './capacity-building/mtech_card'
+import Pgd from './capacity-building/pgd_card'
+import ShortTermCourses from './capacity-building/short_term_courses_card'
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import ElevateAppBar from './header'
 import BottomMenu from './bottom-navigation'
+import maincss from '../styles/main.module.css'
+import Hidden from '@material-ui/core/Hidden';
 
 
 
@@ -54,9 +56,16 @@ export default function Main(){
   })
   )
   const classes = useStyles(); 
-        return(<><ElevateAppBar/>
-      <Grid container direction="row" justify="space-between">
-        <div style={{backgroundColor:"#f8f2ec", width:"100%"}}>
+        return(<>
+        <Hidden only={[ 'md', 'lg', 'xl']}>
+          <Paper className={classes.paper}>Hidden on lg</Paper>
+        </Hidden>
+        <Hidden only={['xs', 'sm']}>
+        <ElevateAppBar/>
+        </Hidden>
+        
+      <Grid container direction="row" justify="space-between" style={{marginTop:135}}>
+        <div className={maincss.bg}>
           <Slider/>
         </div>
       </Grid>  
@@ -78,6 +87,7 @@ export default function Main(){
                   </Grid>
                 </Grid>
                 <Grid item lg={4}>
+                  Social Network
                   <Grid item container direction="column" justify="center" alignItems="flex-end">
                     <Grid item >
                       <FbPage/>

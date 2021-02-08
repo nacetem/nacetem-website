@@ -1,0 +1,12 @@
+.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .fullheight {
+    height: 100%; /* Full height */
+    position: fixed; /* Make it stick, even on scroll */
+    overflow: auto; /* Enable scrolling if the sidenav has too much content */
+    margin: 20px;
+    width: 250px;
+  }
