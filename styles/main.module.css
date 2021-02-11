@@ -73,7 +73,7 @@
     /* width: 90px;
     height: 90px;
     background-color: #cc2a41; */
-    animation: spin 40s infinite;
+    animation: spin 50s infinite;
   }
   
   @keyframes spin {

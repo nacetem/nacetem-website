@@ -1,5 +1,5 @@
 import ReserachHeader from '../components/policy-reasearch-header'
-import Footer from '../components/footer'
+import BottomMenu from '../components/bottom-navigation'
 
 export default function CompletedProject(){
     return <>    
@@ -7,6 +7,6 @@ export default function CompletedProject(){
         <div style={{width:200, height:200, padding:30, margin:"auto"}}>
         <img src="/images/under_construction.jpg" alt="under construction"  />
         </div>
-        <Footer/>
+        <BottomMenu/>
     </>
 }

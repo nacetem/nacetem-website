@@ -1,5 +1,3 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
 import React from 'react';
 import Skeleton from '@material-ui/lab/Skeleton';
 import { makeStyles } from '@material-ui/core';

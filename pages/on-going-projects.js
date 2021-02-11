@@ -1,8 +1,9 @@
 import ReserachHeader from '../components/policy-reasearch-header'
-import Footer from '../components/footer'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import OngoingList from '../components/ongoing-list'
+import BottomMenu from '../components/bottom-navigation'
+
 
 
 export default function OnGoingProject(){
@@ -28,7 +29,7 @@ export default function OnGoingProject(){
         </Typography>
         <OngoingList/>
     </Grid>
-    <Footer/>
+    <BottomMenu/>
     </>)
 }
 

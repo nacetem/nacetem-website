@@ -9,7 +9,6 @@ import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Head from 'next/head'
 import styles from '../styles/site.module.css'
-import TransitionsModal from '../lib/fmodal'
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -37,7 +36,6 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import SchoolIcon from '@material-ui/icons/School';
 import BuildIcon from '@material-ui/icons/Build';
 import { useRouter } from 'next/router'
-import {useStateValue} from './course-reg/state-provider'
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
@@ -132,7 +130,7 @@ export default function ElevateAppBar({props}) {
   const [more, setMore] = React.useState(null);
   const [openDrawer, setOpenDrawer] = React.useState(false);
   const router = useRouter()
-  const [{loggedIn}, dispatch] = useStateValue();
+  // const [{loggedIn}, dispatch] = useStateValue();
   
   const open = Boolean(anchorEl);
   const handleToggle = () => setOpenDrawer(!openDrawer);
