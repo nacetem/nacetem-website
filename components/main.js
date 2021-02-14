@@ -7,6 +7,7 @@ import {ProfileDarkTheme} from './tw-page'
 import Gia from './news/gia'
 import ExpertsUrgeIntervention from './news/experts-urge-intervention'
 import ScienceDiplomacy from './news/science-diplomacy'
+import AudaNepad from './news/auda-nepad'
 import Mtech from './capacity-building/mtech_card'
 import Pgd from './capacity-building/pgd_card'
 import ShortTermCourses from './capacity-building/short_term_courses_card'
@@ -82,7 +83,7 @@ export default function Main(){
                     <Grid item ><ScienceDiplomacy/></Grid>
                     <Grid item><ExpertsUrgeIntervention/></Grid>
                     <Grid item><Gia/></Grid>
-                    
+                    <Grid item><AudaNepad/></Grid>
                   </Grid>
                 </Grid>
                 <Grid item lg={4}>
