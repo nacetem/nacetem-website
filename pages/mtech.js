@@ -7,11 +7,20 @@ import Button from '@material-ui/core/Button';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import BottomMenu from '../components/bottom-navigation'
 import Link from 'next/link'
+import maincss from '../styles/main.module.css'
+import Hidden from '@material-ui/core/Hidden';
+import Draw from '../components/drawer'
 
 
 export default function Mtech(){
     return<>
-        <ElevateAppBar/>
+        <Hidden only={['md', 'lg', 'xl']}>
+          <Draw/>
+        </Hidden>
+
+        <Hidden only={['xs', 'sm']}>
+          <ElevateAppBar/>
+        </Hidden>
         <Head><title>Master Technology Management (NACETEM)</title></Head>
         <Typography variant="body1" component="h5" style={{backgroundColor:'maroon', color:'#fff', width:300, padding:10, marginTop:10, marginBottom:7}}>
         Masters in Technology Management   

@@ -47,6 +47,7 @@ import maincss from '../styles/main.module.css'
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
+import PopContact from './pop-contact'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -186,34 +187,37 @@ export default function ElevateAppBar({props}) {
   return (<React.Fragment>
       <CssBaseline />
       <ElevationScroll {...props}>
-        <AppBar style={{backgroundColor:"white", color:"maroon", paddingTop:10}}>
+        <AppBar position="static" style={{backgroundColor:"white", color:"maroon", paddingTop:10}}>
           <Toolbar>
-            <Grid container >
-              <Grid item xs={12} lg={1}>
+            <Grid container direction="row" justify="space-between" alignItems="center">
+              <Grid item xs={12} md={1} lg={1}>
                 <Link href="/">
-                  <a><img src="logo.png" className={maincss.rotate} alt="logo" with="100" height="100"/></a>
+                  <a><img src="logo.png" className={maincss.rotate} alt="logo" width="90" height="90"/></a>
                 </Link>
               </Grid> 
-              <Grid item xs={12} lg={3}>         
-               <Link href="/" > 
-                <a><h2>National Centre for  <br/>Technology Management  <br/> (NACETEM)</h2></a>
-               </Link>
-               </Grid> 
-               <Grid item xs={12} lg={3}>
+              {/* style={{textAlign: "justify", textJustify: "inter-word"}} */}
+              <Grid item xs={12} md={3} lg={3} >         
+                <Link href="/" > 
+                  <a><h2>National Centre for  <br/>Technology Management  <br/> (NACETEM)</h2></a>
+                </Link>
+              </Grid> 
+              <Grid item xs={12} md={2} lg={2}>
                 
-               </Grid>
-               <Grid item xs={12} lg={5}>
-               <div >
+              </Grid>
+              <Grid item xs={12} md={6} lg={6}>
+               <div>
                   <div className={maincss.social}>
-                      <IconButton color="primary" aria-label="upload picture" component="span">
-                        <FacebookIcon/>
+                      <IconButton color="primary" aria-label="facebook link" component="span">
+                        <a target = "_blank" href="https://web.facebook.com/National-Centre-for-Technology-Management-NACETEM-300067793354315">
+                          <FacebookIcon/>
+                        </a>
                       </IconButton>
-                      <IconButton color="primary" aria-label="upload picture" component="span">
-                        <TwitterIcon/>
+                      <IconButton color="primary" aria-label="twitter link" component="span">
+                        <a target = "_blank"  href="https://twitter.com/nacetem_ngr?lang=en">
+                          <TwitterIcon/>
+                        </a>
                       </IconButton>
-                      <IconButton color="default" aria-label="upload picture" component="span">
-                        <ContactPhoneIcon/>
-                      </IconButton>
+                     <PopContact/>
                   </div>
                   <Button color="inherit">
                     <Link href="/">
@@ -260,12 +264,12 @@ export default function ElevateAppBar({props}) {
                           <a>STI Indicator</a>
                         </Link>
                         </MenuItem>
-                      <MenuItem style={{color:"maroon"}}>
+                      {/* <MenuItem style={{color:"maroon"}}>
                         <Avatar alt=" " src="images/publication_img.png" className={classes.large} />&nbsp;
                         <Link href="/publications">
                           <a>Publication</a>
                         </Link>
-                        </MenuItem>
+                        </MenuItem> */}
                     </Menu>
                     
                     <Button aria-controls="simple-menu" color="inherit" aria-haspopup="true" onClick={handleCapacity}>

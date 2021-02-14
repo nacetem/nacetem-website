@@ -1,7 +1,6 @@
 import React from 'react'
 import Slider from './carousel'
 import { makeStyles } from '@material-ui/core/styles';
-import AnnouncementIcon from '@material-ui/icons/Announcement';
 import { Paper } from '@material-ui/core';
 import FbPage from './fb-page';
 import {ProfileDarkTheme} from './tw-page'
@@ -18,7 +17,7 @@ import ElevateAppBar from './header'
 import BottomMenu from './bottom-navigation'
 import maincss from '../styles/main.module.css'
 import Hidden from '@material-ui/core/Hidden';
-
+import Draw from './drawer'
 
 
 export default function Main(){
@@ -57,21 +56,21 @@ export default function Main(){
   )
   const classes = useStyles(); 
         return(<>
-        <Hidden only={[ 'md', 'lg', 'xl']}>
-          <Paper className={classes.paper}>Hidden on lg</Paper>
+        <Hidden only={['md', 'lg', 'xl']}>
+          <Draw/>
         </Hidden>
+
         <Hidden only={['xs', 'sm']}>
-        <ElevateAppBar/>
+          <ElevateAppBar/>
         </Hidden>
-        
-      <Grid container direction="row" justify="space-between" style={{marginTop:135}}>
+      <Grid container direction="row" justify="space-between" >
         <div className={maincss.bg}>
           <Slider/>
         </div>
       </Grid>  
       <Grid container direction="column" justify="space-between">
         <Paper elevation={0} style={{padding:20}}>
-              {/* <h1><AnnouncementIcon fontSize="inherit"/>Latest News</h1> */}
+              {/* <h1><AnnouncementIcon 33fontSize="inherit"/>Latest News</h1> */}
               <Grid container>
                 <Typography variant="h5" component="h5" gutterBottom >
                   Latest News             

@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function OngoingList() {
+export default function InnovationList() {
   const classes = useStyles();
 
   return (
@@ -25,44 +25,31 @@ export default function OngoingList() {
           <ListItemIcon>
             <StarIcon />
           </ListItemIcon>
-          <ListItemText primary="National Research and Development Survey (2016 - 2018)" />
+          <ListItemText primary="The innovation survey on the other hand collects data on the state of innovation of Nigerian enterprises within a reference  period.  Issues  such  as  types  of  innovations, innovation activities, barriers to innovation, government support for innovation and intellectual property rights are measured, among other issues. It is undertaken in two key sectors  of  the  economy:  manufacturing  and  services. Some of the established Innovation Indicators include:" />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <StarIcon />
           </ListItemIcon>
-          <ListItemText primary="National Business Innovation Survey (2016-2018)" />
+          <ListItemText primary="Innovation Intensity" />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <StarIcon />
           </ListItemIcon>
-          <ListItemText primary="National Informal Sector Innovation Survey (Pilot Survey)" />
+          <ListItemText primary="Top Innovation Collaboration Partners" />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <StarIcon />
           </ListItemIcon>
-          <ListItemText primary="Technology Audit of Selected Economic Sectors in Nigeria" />
+          <ListItemText primary="Top Motivation for Innovation" />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <StarIcon />
           </ListItemIcon>
-          <ListItemText primary="Assessment of the Capabilities and Potentials of the Federal Ministry of Science &amp; Technology and its Agencies" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <StarIcon />
-          </ListItemIcon>
-          <ListItemText primary="The  Design  and  Impact  of  an  Apprenticeship-based  Entrepreneurship  Intervention  in  Nigeria  (Sponsor:  IDRC Collaborator: OAU-CGSPS)" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <StarIcon />
-          </ListItemIcon>
-          <ListItemText primary="Building a Competitive and Socially Inclusive Local Pharmaceutical Manufacturing in West Africa: The Nigerian Case Study (Sponsored by ACTS-Kenya)
-" />
+          <ListItemText primary="Top Obstacles to Innovation" />
         </ListItem>
       </List>
     </Paper>

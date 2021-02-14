@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import { FacebookProvider, Page } from 'react-facebook';
-import { Paper } from '@material-ui/core';
+
  
 export default class FbPage extends Component {
   render() {

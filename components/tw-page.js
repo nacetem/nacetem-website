@@ -11,7 +11,6 @@ export const ProfileDarkTheme = () => (<>
       dataSource={{ sourceType: "profile", screenName: "‎nacetemng1" }}
       options={{ theme: "dark", width: "340", height: "600" }}
     />
-    
     </>
   );
   
