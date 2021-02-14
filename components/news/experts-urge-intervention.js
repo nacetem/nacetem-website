@@ -12,38 +12,45 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 345,
   },
+
   media: {
     height: 140,
+    width:"100%",
+    objectFit: "fill",
   },
+  
 });
 
-export default function NacetemAisr() {
+export default function ExpertsUrgeIntervention() {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="images/nacetem-aisr.jpg"
-          title="Contemplative Reptile"
-        />
+        {/* <CardMedia
+          image="images/auda_nepad.jpg"
+          title="AUDA-NEPAD NACETEM COLLABORATION"
+        /> */}
+        
+        <img src="images/dg_expert_urge_interventn.jpg" className={classes.media}/> 
+      
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-          NACETEM- AISR, UK Collaboration 
+          <Typography gutterBottom variant="h6" component="h6">
+          Experts urge intervention
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            .
+          Experts urge intervention for Nigeria’s fragile innovation system
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
+      <Button size="small" color="primary" href="https://m.guardian.ng/business-services/experts-urge-intervention-for-nigerias-fragile-innovation-system/amp/?fbclid=IwAR3C4rrinkdQSuKs3FN8WlOStdlmLJdD_PiL9Pp4qFWu8mG7Kwz8powjL7k">
+          Learn More
+        </Button>
         <Button size="small" color="primary">
           Share
         </Button>
-        <Button size="small" color="primary" href="https://twitter.com/nacetemng1/status/1298580319600336896?ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Eprofile%3Anacetemng1%7Ctwcon%5Etimelinechrome&ref_url=https%3A%2F%2Fnacetem.gov.ng%2F%23%2Fhome">
-          Learn More
-        </Button>
+        
       </CardActions>
     </Card>
   );

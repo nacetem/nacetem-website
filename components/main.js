@@ -4,9 +4,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Paper } from '@material-ui/core';
 import FbPage from './fb-page';
 import {ProfileDarkTheme} from './tw-page'
-import NacetemAisr from './news/nacetem-aisr'
-import NewsAudaNepad from './news/news-auda-nepad'
-import Gstic from './news/gstic'
+import Gia from './news/gia'
+import ExpertsUrgeIntervention from './news/experts-urge-intervention'
+import ScienceDiplomacy from './news/science-diplomacy'
 import Mtech from './capacity-building/mtech_card'
 import Pgd from './capacity-building/pgd_card'
 import ShortTermCourses from './capacity-building/short_term_courses_card'
@@ -79,10 +79,10 @@ export default function Main(){
               <Grid container direction="row" justify="space-between" spacing={2}>
                 <Grid item lg={8} >
                   <Grid item container direction="row" justify="flex-start" flexGrow= "1" spacing={2}>
-                    <Grid item ><Gstic/></Grid>
-                    <Grid item><NewsAudaNepad/></Grid>
-                    <Grid item><NacetemAisr/></Grid>
-                    <Grid item><NacetemAisr/></Grid>
+                    <Grid item ><ScienceDiplomacy/></Grid>
+                    <Grid item><ExpertsUrgeIntervention/></Grid>
+                    <Grid item><Gia/></Grid>
+                    
                   </Grid>
                 </Grid>
                 <Grid item lg={4}>

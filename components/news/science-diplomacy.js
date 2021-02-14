@@ -7,51 +7,48 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import maincss from '../../styles/main.module.css'
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
   },
-
   media: {
     height: 140,
-    width:"100%",
-    objectFit: "fill",
   },
-  
 });
 
-export default function NewsAudaNepad() {
+export default function ScienceDiplomacy() {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        {/* <CardMedia
-          image="images/auda_nepad.jpg"
-          title="AUDA-NEPAD NACETEM COLLABORATION"
-        /> */}
-        
-        <img src="images/auda_nepad.jpg" className={classes.media}/> 
-      
-        <CardContent>
-          <Typography gutterBottom variant="h6" component="h6">
-            AUDA-NEPAD
+        <CardMedia
+          className={classes.media}
+          image="images/science_diplomacy.jpg"
+          title="Science Diplomacy"
+        />
+        <CardContent >
+          <Typography gutterBottom variant="h5" component="h2">
+          Science Policy
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-          AUDA-NEPAD NIGERIA Engages NACETEM To Carry Out 2nd Peer Review Of The
-           Country’s Socio-economic Development
+          <Typography variant="body2" color="textSecondary" component="p" >
+          National Workshop on Science Diplomacy
+          </Typography>
+          <Typography gutterBottom variant="body1">
+          Venue: Zoom<br/>
+          Date: Tue 9th and Wed 10th, March 2021
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-      <Button size="small" color="primary" href="http://citymirrornews.com/news/2020/24/auda-nepad-nigeria-engages-nacetem-to-carry-out-2nd-peer-review-of-the-countrys-socio-economic-development/">
+        <Button size="small" color="primary" href="#">
           Learn More
         </Button>
         <Button size="small" color="primary">
           Share
         </Button>
-        
       </CardActions>
     </Card>
   );
