@@ -8,11 +8,19 @@ import GetAppIcon from '@material-ui/icons/GetApp';
 import Footer from '../components/footer'
 import Table from '@material-ui/core/Table';
 import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
+import Draw from '../components/drawer'
+import Hidden from '@material-ui/core/Hidden';
 
 
 export default function Mtech(){
     return<>
-        <ElevateAppBar/>
+        <Hidden only={['md', 'lg', 'xl']}>
+          <Draw/>
+        </Hidden>
+
+        <Hidden only={['xs', 'sm']}>
+          <ElevateAppBar/>
+        </Hidden>
         <Head><title>Postgradute Diploma in Technology Management (NACETEM)</title></Head>
         <Typography variant="body1" component="h5" style={{backgroundColor:'maroon', color:'#fff', width:300, padding:10, marginTop:10, marginBottom:7}}>
             Postgradute Diploma in Technology Management

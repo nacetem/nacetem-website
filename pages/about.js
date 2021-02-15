@@ -7,11 +7,19 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import LoyaltyIcon from '@material-ui/icons/Loyalty';
 import Footer from '../components/footer'
-
+import Draw from '../components/drawer'
+import Hidden from '@material-ui/core/Hidden';
 
 
 export default function About(){
-    return<><ElevateAppBar/>
+    return<>
+   <Hidden only={['md', 'lg', 'xl']}>
+          <Draw/>
+        </Hidden>
+
+        <Hidden only={['xs', 'sm']}>
+          <ElevateAppBar/>
+        </Hidden>
     <Head>
         <title>About (NACETEM)</title>
       </Head>

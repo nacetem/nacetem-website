@@ -7,7 +7,6 @@ import Button from '@material-ui/core/Button';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import Footer from '../components/footer'
 import Link from 'next/link'
-import maincss from '../styles/main.module.css'
 import Hidden from '@material-ui/core/Hidden';
 import Draw from '../components/drawer'
 
