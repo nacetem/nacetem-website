@@ -15,10 +15,10 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import ElevateAppBar from './header'
-import BottomMenu from './bottom-navigation'
 import maincss from '../styles/main.module.css'
 import Hidden from '@material-ui/core/Hidden';
 import Draw from './drawer'
+import Footer from './footer'
 
 
 export default function Main(){
@@ -146,7 +146,7 @@ export default function Main(){
         </Paper>
       </Grid>
       <Grid item style={{marginTop:30}}>
-        <BottomMenu/>
+        <Footer/>
       </Grid>
         </>
     )

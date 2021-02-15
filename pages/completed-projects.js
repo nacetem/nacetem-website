@@ -1,5 +1,5 @@
 import ReserachHeader from '../components/policy-reasearch-header'
-import BottomMenu from '../components/bottom-navigation'
+import Footer from '../components/footer'
 import CompletedList from '../components/complered-list'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -30,6 +30,6 @@ export default function CompletedProject(){
                 <CompletedList/>
             </Grid>
         </Grid>
-        <BottomMenu/>
+        <Footer/>
     </>
 }

@@ -2,7 +2,7 @@ import ReserachHeader from '../components/policy-reasearch-header'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import OngoingList from '../components/ongoing-list'
-import BottomMenu from '../components/bottom-navigation'
+import Footer from '../components/footer'
 
 export default function OnGoingProject(){
     return (<>
@@ -29,7 +29,7 @@ export default function OnGoingProject(){
             <OngoingList/>
         </Grid>
     </Grid>
-    <BottomMenu/>
+    <Footer/>
     </>)
 }
 

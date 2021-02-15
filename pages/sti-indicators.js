@@ -1,5 +1,5 @@
 import ReserachHeader from '../components/policy-reasearch-header'
-import BottomMenu from '../components/bottom-navigation'
+import Footer from '../components/footer'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import RDList from '../components/rdindicator-list'
@@ -28,7 +28,7 @@ export default function CompletedProject(){
                 <InnovationList/>
             </Grid>
         </Grid>
-    <BottomMenu/>
+    <Footer/>
     </>
 }
 

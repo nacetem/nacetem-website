@@ -5,7 +5,7 @@ import { Paper } from '@material-ui/core';
 import ElevateAppBar from '../components/header'
 import Button from '@material-ui/core/Button';
 import GetAppIcon from '@material-ui/icons/GetApp';
-import BottomMenu from '../components/bottom-navigation'
+import Footer from '../components/footer'
 import Table from '@material-ui/core/Table';
 import ContactPhoneIcon from '@material-ui/icons/ContactPhone';
 
@@ -199,7 +199,7 @@ export default function Mtech(){
             </Grid>
         </Paper>
         <Grid item style={{marginTop:30}}>
-        <BottomMenu/>
+        <Footer/>
       </Grid>
     </>
 }

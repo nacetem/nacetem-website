@@ -6,7 +6,7 @@ import ElevateAppBar from '../components/header'
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import LoyaltyIcon from '@material-ui/icons/Loyalty';
-import BottomMenu from '../components/bottom-navigation'
+import Footer from '../components/footer'
 
 
 
@@ -244,7 +244,7 @@ export default function About(){
             </Grid>
         </Grid>
         <Grid item style={{marginTop:30}}>
-        <BottomMenu/>
+        <Footer/>
       </Grid>
     </>
 }
